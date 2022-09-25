@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## You can add this script to your path and use a cronjob to run it 
+
+#cd into the directory that has the bot mainpy
+cd ~/REPLACEME
+
+#run the main.py
+python3 ./main.py
