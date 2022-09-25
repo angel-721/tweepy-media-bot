@@ -27,7 +27,6 @@ class Bot:
         for l in m:
             self.mediaIds.append(l.strip())
         m.close()
-        return 
 
     def makeTweet(self):
         self.populateMedia()
@@ -35,4 +34,8 @@ class Bot:
         i = randint(0,(len(self.mediaIds))-1)
         media_ids.append(api.media_upload(self.mediaIds[i]).media_id)
         api.update_status(status="",media_ids=media_ids)
-        return
+
+    def likeMentions(self):
+        for tweet in api.mentions_timeline():
+            if not tweet.favorited:
+                api.create_favorite(tweet.id)
