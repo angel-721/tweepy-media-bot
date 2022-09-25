@@ -2,7 +2,7 @@
 A simple twitter media sharing bot implemented in Python using the [Tweepy module](https://www.tweepy.org/).<br>
 [One bot deployed with this](https://twitter.com/omoriupscalebot)
 
-#Functions 
+# Functions 
 - Tweet with media
 - Like mentions 
 
