@@ -5,7 +5,7 @@ from time import sleep
 bot = Bot()
 bot.makeTweet()
 
-#2 USE THIS IF USING A CRONJOB TO DEPLOY:
+#2 USE THIS IF USING A INFINTE LOOP TO DEPLOY:
 #bot = Bot()
 #running = True
 #while running:
