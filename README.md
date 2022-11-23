@@ -7,6 +7,7 @@ A simple twitter media sharing bot implemented in Python using the [Tweepy modul
 ### Use
 - Install dependencies with <code> pip install -r requirements.txt</code>
 - Make a [Twitter developer](https://developer.twitter.com/en) account. Put your account keys in <code>./textfile/keys.txt</code>, then deploy using a method of your choice :) <br>
+  - Make sure that the tokens for the account has write access 
 The filenames script can be used to automate making a medialist.txt file needed for the bot to upload images. 
 
 ### Functions 
