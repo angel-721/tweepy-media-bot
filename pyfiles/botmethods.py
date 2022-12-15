@@ -6,12 +6,12 @@ from random import randint
 keys = []
 
 #open file relative to main.py
-f = open("./text_files/keys.txt")
-for l in f:
-    l.strip()
-    temp = l.split()
+file = open("./text_files/keys.txt")
+for line in file:
+    line.strip()
+    temp = line.split()
     keys.append(temp[1])
-f.close()
+file.close()
 
 #connect to API with v1.1
 auth = tweepy.OAuthHandler(keys[0], keys[1])
@@ -20,21 +20,32 @@ api = tweepy.API(auth=auth)
 
 class Bot:
     def __init__(self):
-        self.mediaIds = []
-
+        self.mMediaIds = []
+    """
+    Reads the medalist.txt file and adds file name to object list field
+    """
     def populateMedia(self):
-        m = open("./text_files/medialist.txt")
-        for l in m:
-            self.mediaIds.append(l.strip())
-        m.close()
+        mediaList = open("./text_files/medialist.txt")
+        for line in mediaList:
+            self.mMediaIds.append(line.strip())
+        mediaList.close()
 
+    """
+    Picks a random media file to tweet out. Media file is sourced from media list field
+    that reads from the medalist.txt file
+    """
     def makeTweet(self):
-        self.populateMedia()
+        if(len(self.mMediaIds)<1):
+            print("No media to tweet out")
+            return
         media_ids=[]
-        i = randint(0,(len(self.mediaIds))-1)
-        media_ids.append(api.media_upload(self.mediaIds[i]).media_id)
+        media_index = randint(0,(len(self.mMediaIds))-1)
+        media_ids.append(api.media_upload(self.mMediaIds[media_index]).media_id)
         api.update_status(status="",media_ids=media_ids)
 
+    """
+    Likes any mentions
+    """
     def likeMentions(self):
         for tweet in api.mentions_timeline():
             if not tweet.favorited:
