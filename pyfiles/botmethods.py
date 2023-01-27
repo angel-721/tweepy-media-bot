@@ -6,7 +6,7 @@ from random import randint
 keys = []
 
 #open file relative to main.py
-file = open("./text_files/keys.txt")
+file = open("./text-files/keys.txt")
 for line in file:
     line.strip()
     temp = line.split()
@@ -25,7 +25,7 @@ class Bot:
     Reads the medalist.txt file and adds file name to object list field
     """
     def populateMedia(self):
-        mediaList = open("./text_files/medialist.txt")
+        mediaList = open("./text-files/medialist.txt")
         for line in mediaList:
             self.mMediaIds.append(line.strip())
         mediaList.close()
@@ -48,5 +48,8 @@ class Bot:
     """
     def likeMentions(self):
         for tweet in api.mentions_timeline():
+            if not tweet.favorited:
+                api.create_favorite(tweet.id)
+        for tweet in api.get_retweets_of_me():
             if not tweet.favorited:
                 api.create_favorite(tweet.id)
