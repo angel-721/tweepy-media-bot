@@ -22,6 +22,9 @@ def loopDeploy():
         # 3600 seconds = 1 hour
         sleep(3600)
 
+"""
+Function to parse cli arguments mainly for getting the type of deployment
+"""
 def parseArgs():
     parser = argparse.ArgumentParser(prog="Tweepy-Media-Bot", description="Tweets and Likes Media in a automated fasion")
     parser.add_argument("-deploy", type=str, required=True)
@@ -32,7 +35,7 @@ def parseArgs():
 def main(args):
     #   if (args.deploy == "test"):
     #       system("./test.py")
-    elif (args.deploy == "cronjob"):
+    if (args.deploy == "cronjob"):
         cronJobDeploy()
     elif (args.deploy == "loop"):
         loopDeploy()
