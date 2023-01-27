@@ -12,7 +12,7 @@ A simple Twitter media sharing bot implemented in Python using the [Tweepy modul
 
 ### Functions 
 - Tweet with media
-- Like mentions and retweets
+- Like mentions
 
 ### Deployment methods: 
 - 1) Use a [AWS](https://aws.amazon.com/) server to host the bot and run the main.py every hour. One such way is to use a cronjob that runs at the start of every hour.
