@@ -50,6 +50,3 @@ class Bot:
         for tweet in api.mentions_timeline():
             if not tweet.favorited:
                 api.create_favorite(tweet.id)
-        for tweet in api.get_retweets_of_me():
-            if not tweet.favorited:
-                api.create_favorite(tweet.id)
