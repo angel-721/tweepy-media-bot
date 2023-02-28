@@ -1,5 +1,6 @@
 import tweepy
 from pyfiles.database import randomImage
+from pyfiles.database import randomKeyWordImage
 import os
 
 # get keys
@@ -29,6 +30,21 @@ class Bot:
     """
     def makeTweet(self):
         image = randomImage()
+        if (image == None):
+            print("No media to tweet out")
+            return
+        image = "./media/"+image
+        media_ids=[]
+        media_ids.append(api.media_upload(image).media_id)
+        api.update_status(status="",media_ids=media_ids)
+        return
+
+    """
+    Same as makeTweet but uses a keyword
+
+    """
+    def makeKeyWordTweet(self, keyWord):
+        image = randomKeyWordImage(keyWord)
         if (image == None):
             print("No media to tweet out")
             return
