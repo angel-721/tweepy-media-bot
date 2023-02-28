@@ -3,14 +3,13 @@ A simple Twitter media sharing bot implemented in Python using the [Tweepy modul
 
 ### Read this on the Twitter API
 - The Twitter API will no longer support free basic access [source](https://twitter.com/TwitterDev/status/1621026986784337922?s=20)
-- Using the bot via the Twitter API will no longer free and it saddens me since this project is based around the Twitter API
-- It saddens me but I'll move on to other projects. 
+	- I'm not sure when this starts but be aware.
 
 ### Use
 - Install dependencies with <code> pip install -r requirements.txt</code>
 - Make a [Twitter developer](https://developer.twitter.com/en) account. Put your account keys in <code>./text-files/keys.txt</code>, then deploy using a method of your choice :) <br>
-  - Make sure that the tokens for the account have write access 
-  - The filenames script can be used to automate making a medialist.txt file needed for the bot to upload images. 
+- Make sure that the tokens for the account have write access.
+- populate the database by running <code> ./main.py -make-database 1 </code> - Run this everytime you add new images/gifs to the media folder.
 - When running <code>main.py</code> make sure to include the argument <code>-deploy</code> to specify which deployment method you want. 
 	- <code>-deploy cronjob</code> if you want to use a cronjob 
 	- <code>-deploy loop</code> if you want to use an infinte loop
@@ -18,6 +17,7 @@ A simple Twitter media sharing bot implemented in Python using the [Tweepy modul
 ### Functions 
 - Tweet with media
 - Like mentions
+- Tweet based off a keyword
 
 ### Deployment methods: 
 - 1) Use a [AWS](https://aws.amazon.com/) server to host the bot and run the main.py every hour. One such way is to use a cronjob that runs at the start of every hour.
