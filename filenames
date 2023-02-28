@@ -1,7 +1,0 @@
-#!/bin/bash
-
-for file in ./media/*
-do
-	echo "$file" >> ./text-files/medialist.txt
-done
-
