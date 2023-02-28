@@ -49,3 +49,17 @@ def randomImage():
     connect.commit()
     connect.close()
     return image[0][0]
+
+def randomKeyWordImage(word):
+    connect = sqlite3.connect("./pyfiles/image.db")
+    word = "%"+word+"%"
+    image = connect.execute("""
+        SELECT image_path FROM images
+        WHERE image_path LIKE ?
+        ORDER BY RANDOM()
+        LIMIT 1;
+    """,(word,)).fetchall()
+    connect.commit()
+    connect.close()
+    print(image[0][0])
+    return image[0][0]
