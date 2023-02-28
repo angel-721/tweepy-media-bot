@@ -61,5 +61,4 @@ def randomKeyWordImage(word):
     """,(word,)).fetchall()
     connect.commit()
     connect.close()
-    print(image[0][0])
     return image[0][0]
