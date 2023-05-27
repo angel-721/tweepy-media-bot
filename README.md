@@ -25,7 +25,6 @@ A simple Twitter media sharing bot implemented in Python using the [Tweepy modul
 - 2) Another method is to comment out the first Bot and use an infinite loop that uses the time.sleep() function to wait every hour. 
 
 ### Example 
-- [One bot deployed with this](https://twitter.com/omoriupscalebot)
 - <code>python main.py -deploy cronjob</code> 
 - if you want to run the py file as a script you can also do <code>./main.py -deploy cronjob</code>
   - Make sure you have executable privileges for <code>main.py</code> if you want to run it as above. If not the first way works just fine! 
