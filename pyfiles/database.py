@@ -1,13 +1,22 @@
+"""
+This module contains methods for making and querying from a database.
+The database is a table of strings that are file paths to media that the bot will tweet
+"""
+
 #!/usr/bin/env python
-import sqlite3
 import os
+import sqlite3
+
 
 def makeDatabase():
-    if(os.path.isfile("./pyfiles/image.db")):
+    """
+    Make the database file if it doesn't exist
+    """
+    if os.path.isfile("./pyfiles/image.db"):
+        print("Database already exists")
         return
-    else:
-        db = open("./pyfiles/image.db", "w")
-        db.close()
+    with open("./pyfiles/image.db", "w", encoding="utf-8") as database:
+        database.close()
     return
 
 def makeImageTable():
@@ -20,12 +29,11 @@ def makeImageTable():
     connect.commit()
     connect.close()
 
-"""
-Run this to make the database and populate it with image paths. Please run this
-before trying to tweet!
-
-"""
 def populateTable():
+    """
+    Run this to make the database and populate it with image paths. Please run this
+    before trying to tweet!
+    """
     makeDatabase()
     makeImageTable()
     paths = os.listdir("./media")
