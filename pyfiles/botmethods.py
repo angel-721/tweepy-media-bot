@@ -1,15 +1,20 @@
-import tweepy
-from pyfiles.database import randomImage
-from pyfiles.database import randomKeyWordImage
-import os
+"""
 
-# get keys
-# keys[0]=api,keys[1]=apisec,keys[2]=at,keys[3]=atsec keys[4]=beartoken
+This module wraps around tweepy and works with the database 
+to make tweets and send media to Twitter
+get keys
+keys[0]=api,keys[1]=apisec,keys[2]=at,keys[3]=atsec keys[4]=beartoken
+
+"""
+
+import tweepy
+from pyfiles.database import randomImage, randomKeyWordImage
+
 
 keys = []
 
 # open file relative to main.py
-file = open("./text-files/keys.txt")
+file = open("./text-files/keys.txt",encoding="utf-8")
 for line in file:
     line.strip()
     temp = line.split()
@@ -39,11 +44,10 @@ class Bot:
         api.update_status(status="",media_ids=media_ids)
         return
 
-    """
-    Same as makeTweet but uses a keyword
-
-    """
     def makeKeyWordTweet(self, keyWord):
+        """
+        Same as makeTweet but uses a keyword
+        """
         image = randomKeyWordImage(keyWord)
         if (image == None):
             print("No media to tweet out")
