@@ -36,6 +36,7 @@ class Bot:
 
     def makeTweet(self):
         """Make a tweet."""
+
         image = randomImage()
         if image is None:
             print('No media to tweet out')
@@ -48,6 +49,7 @@ class Bot:
 
     def makeKeyWordTweet(self, keyWord):
         """Works the same as makeTweet but uses a keyword."""
+
         image = randomKeyWordImage(keyWord)
         if image is None:
             print('No media to tweet out')
@@ -58,13 +60,9 @@ class Bot:
         api.update_status(status='', media_ids=media_ids)
         return
 
-    """
-
-    Likes any mentions
-
-    """
-
     def likeMentions(self):
-        for tweet in api.mentions_timeline():
-            if not tweet.favorited:
-                api.create_favorite(tweet.id)
+        """Likes any mentions."""
+
+    for tweet in api.mentions_timeline():
+        if not tweet.favorited:
+            api.create_favorite(tweet.id)
