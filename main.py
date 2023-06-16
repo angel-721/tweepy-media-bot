@@ -13,17 +13,14 @@ from pyfiles.database import populateTable
 
 bot = Bot()
 
-# 1) USE THIS IF USING A CRONJOB TO DEPLOY:
-
 
 def cronJobDeploy():
+    """USE THIS IF USING A CRONJOB TO DEPLOY."""
     bot.makeTweet()
 
 
-# 2 USE THIS IF USING A INFINTE LOOP TO DEPLOY:
-
-
 def loopDeploy():
+    """USE THIS IF USING A INFINTE LOOP TO DEPLOY."""
     running = True
     while running:
         bot.makeTweet()
