@@ -1,6 +1,9 @@
 # tweepy-media-bot
 A simple Twitter media sharing bot implemented in Python using the [Tweepy module](https://www.tweepy.org/).<br>
 
+### WARNING
+- Twitter's new API is out and this doesn't work with API2 access points so you must make sure you are using APIV1.1 points
+
 ### Use
 - Install dependencies with <code> pip install -r requirements.txt</code>
 - Make a [Twitter developer](https://developer.twitter.com/en) account. Put your account keys in <code>./text-files/keys.txt</code>, then deploy using a method of your choice :) <br>
