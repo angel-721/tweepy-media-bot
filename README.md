@@ -2,7 +2,8 @@
 A simple Twitter media sharing bot implemented in Python using the [Tweepy module](https://www.tweepy.org/).<br>
 
 ### WARNING
-- Twitter's new API is out and this doesn't work with APIV2 access points so you must make sure you are using APIV1.1 points
+- Twitter's(X) new API is out and this doesn't work with APIV2 access points so you must make sure you are using APIV1.1 points
+- I'm not sure but I can't find a way to get access to media end points with the new X API so this is the end of this project Twitter(X) changes the API policy
 
 ### Use
 - Install dependencies with <code> pip install -r requirements.txt</code>
